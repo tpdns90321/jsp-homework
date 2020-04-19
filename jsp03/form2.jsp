@@ -11,28 +11,17 @@
 	<%
 		String select = "one";
 		String param = request.getParameter("select");
-		try {
-			switch (Integer.parseInt(param)) {
-			case 3:
-				select = "three";
-				break;
-			case 2:
-				select = "two";
-				break;
-			default:
-			case 1:
-				select = "one";
-			}
-		} catch(Exception e) {
+		if (param != null) {
+			select = param;
 		}
 	%>
 
 	<form method="GET">
 		<div>
 			<select name="select">
-				<option value="1">one</option>
-				<option value="2">two</option>
-				<option value="3">three</option>
+				<option value="one" <%= "one".equals(param) ? "selected" : "" %>>one</option>
+				<option value="two" <%= "two".equals(param) ? "selected" : "" %>>two</option>
+				<option value="three" <%= "three".equals(param) ? "selected" : "" %>>three</option>
 			</select>
 		</div>
 		<div>
