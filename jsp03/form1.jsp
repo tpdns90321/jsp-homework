@@ -11,9 +11,8 @@
 	<%
 		int num = 0;
 		String param = request.getParameter("number");
-		try {
+		if (param != null) {
 			num = Integer.parseInt(param) + 1;
-		} catch (Exception e) {
 		}
 	%>
 
